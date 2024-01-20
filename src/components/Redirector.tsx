@@ -7,6 +7,7 @@ const Redirector: FC = () => {
 
   useEffect(() => {
     if (id && id.length > 0) {
+      document.title = id;
       const url = CryptoJS.AES.decrypt(id, process.env.REACT_APP_PRESSPOOL_AES_KEY as string).toString(CryptoJS.enc.Utf8);
       window.open(url, '_self');
     }
